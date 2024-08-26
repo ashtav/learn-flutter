@@ -12,10 +12,29 @@ class _TextFieldViewState extends State<TextFieldView> {
 
   DateTime? date;
   String gender = 'Laki-laki';
+  String dropdownvalue = 'Item 1';
+  bool isChecked = true;
+
+  List<String> selected = [];
+
+  final List<Map<String, dynamic>> checkboxes = [
+    {'name': 'Item 1', 'isChecked': false},
+    {'name': 'Item 2', 'isChecked': false},
+    {'name': 'Item 3', 'isChecked': false},
+    {'name': 'Item 4', 'isChecked': false},
+  ];
 
   @override
   Widget build(BuildContext context) {
     List<String> genders = ['Laki-laki', 'Perempuan'];
+
+    List<String> items = [
+      'Item 1',
+      'Item 2',
+      'Item 3',
+      'Item 4',
+      'Item 5',
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -54,12 +73,43 @@ class _TextFieldViewState extends State<TextFieldView> {
               padding: const EdgeInsets.symmetric(vertical: 13),
               decoration: const BoxDecoration(
                   border: Border(bottom: BorderSide(color: Colors.black54))),
-              child: Text(
-                date == null
-                    ? 'Pilih tanggal lahir'
-                    : date.toString().substring(0, 10),
-                style: TextStyle(color: date == null ? Colors.black54 : Colors.black),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    date == null
+                        ? 'Pilih tanggal lahir'
+                        : date.toString().substring(0, 10),
+                    style: TextStyle(
+                        color: date == null ? Colors.black54 : Colors.black),
+                  ),
+                  const Icon(Icons.calendar_month, size: 20)
+                ],
               ),
+            ),
+          ),
+          const SizedBox(height: 30),
+
+          // membuat select option / dropdown
+          Container(
+            decoration: const BoxDecoration(
+                border: Border(bottom: BorderSide(color: Colors.black54))),
+            child: DropdownButton(
+              value: dropdownvalue,
+              underline: Container(),
+              icon: const Icon(Icons.keyboard_arrow_down),
+              isExpanded: true,
+              items: items.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownvalue = newValue!;
+                });
+              },
             ),
           ),
 
@@ -87,6 +137,25 @@ class _TextFieldViewState extends State<TextFieldView> {
           ),
 
           const SizedBox(height: 30),
+
+          Column(
+              children: List.generate(checkboxes.length, (i) {
+            final checkbox = checkboxes[i];
+
+            return CheckboxListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(checkbox['name']),
+              value: checkbox['isChecked'],
+              onChanged: (bool? value) {
+                setState(() {
+                  checkbox['isChecked'] = value ?? false;
+                });
+              },
+            );
+          })),
+
+          const SizedBox(height: 30),
+
           // membuat custom button
           GestureDetector(
             onTap: () {

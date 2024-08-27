@@ -13,7 +13,6 @@ class _TextFieldViewState extends State<TextFieldView> {
   DateTime? date;
   String gender = 'Laki-laki';
   String dropdownvalue = 'Item 1';
-  bool isChecked = true;
 
   List<String> selected = [];
 

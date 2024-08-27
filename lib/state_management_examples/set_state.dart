@@ -11,7 +11,9 @@ class _SetStateExampleState extends State<SetStateExample> {
   int counter = 0;
 
   void updateCounter() {
-    counter++;
+    setState(() {
+      counter++;
+    });
   }
 
   @override

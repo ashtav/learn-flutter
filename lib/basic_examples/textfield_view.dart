@@ -59,6 +59,7 @@ class _TextFieldViewState extends State<TextFieldView> {
           GestureDetector(
             onTap: () async {
               final DateTime? picked = await showDatePicker(
+                  initialDate: DateTime.now(),
                   context: context,
                   firstDate: DateTime(2015, 8),
                   lastDate: DateTime(2101));

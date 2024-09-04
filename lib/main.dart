@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'basic_examples/textfield_view.dart';
+import 'local_storage_examples/local_storage_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const TextFieldView(),
+      home: const LocalStorageView(),
     );
   }
 }

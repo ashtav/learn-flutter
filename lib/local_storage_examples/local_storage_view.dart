@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/toast_examples/toast_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageView extends StatefulWidget {
@@ -58,6 +59,7 @@ class _LocalStorageViewState extends State<LocalStorageView> {
     final prefs = SharedPreferencesAsync();
     prefs.setStringList('foods', foods);
     print('Data berhasil disimpan di lokal storage');
+    showToast('Data berhasil disimpan!');
   }
 
   @override

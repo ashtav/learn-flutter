@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+// kalau ingin lebih simple dan cepat dalam penulisan kode, buatkan 1 method
+void showToast(String message) {
+  Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.black54,
+      textColor: Colors.white,
+      fontSize: 16.0);
+}
+
 class ToastView extends StatelessWidget {
   const ToastView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // kalau ingin lebih simple dan cepat dalam penulisan kode, buatkan 1 method
-
-    void showToast(String message) {
-      Fluttertoast.showToast(
-          msg: message,
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.black54,
-          textColor: Colors.white,
-          fontSize: 16.0);
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Toast Example'),

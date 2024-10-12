@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/sqlite_example/db/init.dart';
 
-import 'sqlite_example/views/home_view.dart';
+import 'api_examples/api_home_view.dart';
 
 void main() async {
   // if you want to use sqlite, init first
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      home: const ApiHomeView(),
     );
   }
 }

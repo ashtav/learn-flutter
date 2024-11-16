@@ -1,0 +1,4 @@
+
+    Setup bloc dengan cubit tidak jauh berbeda, di routes
+    kode create: (context) => TodoCubit() diubah menjadi 
+    create: (context) => TodoBloc(), sisanya sama saja.
